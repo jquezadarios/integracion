@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>NutriciónUCT</title>
-  <link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="../PÁG. NUTRICION/css/materialize.min.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
