@@ -34,7 +34,7 @@ session_start();
 			$_SESSION['user']=$f['user'];
 			$_SESSION['rol']=$f['rol'];
 
-			header("Location: index2.php");
+			header("Location: ../PÁG. NUTRICION/nutricion.html");
 		}else{
 			echo '<script>alert("CONTRASEÑA INCORRECTA")</script> ';
 		
