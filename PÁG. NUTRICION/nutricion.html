@@ -12,6 +12,23 @@
       $(".button-collapse").sideNav();
       $('.materialboxed').materialbox();
     });
+
+
+	$('input.autocomplete').autocomplete({
+    data: {
+      "Apple": null,
+      "Microsoft": null,
+      "Google": 'https://placehold.it/250x250'
+    },
+    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {
+      // Callback function when value is autcompleted.
+    },
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+        
+
+
   </script>
 </head>
 <body style="background-color:#F5B7B1;"> 
@@ -33,25 +50,43 @@
       </div>
     </nav>
   </header>
+	
 
   <div class="container">
     <div class="row">
       <div class="col m12">
+	<div class="card-content white-text">
         <div class="card-panel #ec407a pink lighten-1">Bienvenido "nombre de usuario".</div>
       </div>
+	</div>
        <div class="row">
-        <div class="col s12 m6">
+        <div class="col  s12 m6">
           <div class="card #ec407a pink lighten-1">
             <div class="card-content white-text">
               <span class="card-title ">Insertar alimento</span>
-              <p>en esta parte va un formulario para seleccionar alimento de una lista conectada a la base de datos</p>
+              <p>en esta parte va un formulario para seleccionar alimento de una lista con autocompletacion que esta conectada a la base de datos</p>
+		
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">textsms</i>
+          <input type="text" id="autocomplete-input" class="autocomplete">
+          <label for="autocomplete-input">Autocomplete</label>
+        </div>
+      </div>
+    </div>
+  </div>
+        
+		
+
             </div>
             <div class="card-action">
               <a href="#">Aceptar.</a> 
             </div>
           </div>
         </div>
-      </div>
+     
 
 	<div class="row">
         <div class="col s12 m6">
@@ -59,6 +94,7 @@
             <div class="card-content white-text">
               <span class="card-title ">Total calorias consumidas dia.</span>
               <p>en esta parte va un pequeño grafico (circular) con las calorias y porcentage de las calorias consumidas del dia, esto va a la derecha del cuadro de insertar alimento</p>
+	<img src="http://www.eduliticas.com/wp-content/uploads/2015/07/diagrama-de-sectores.png" alt="description" title="tool tip" width="" height="" />
             </div>
           </div>
         </div>
@@ -66,11 +102,25 @@
     </div>
 
 
+
+    <div class="row">
+      <div width:800px>
+        <div class="card-panel #ec407a pink lighten-1">
+          <span class="white-text">Aqui van los graficos con todos los datos del usuario 
+	  <br>
+          <img src="http://leanblitzconsulting.com/wp-content/uploads/2013/01/Control-Chart-Example.gif" alt="description" title="tool tip" width="" height="" /> </span>
+        </div>
+      </div>
+    </div>
+            
+
+
+
+
     <div class="row">
 
     </div>
-    <!--lo nuevoooooooooooooooooooooooooooooooooo-->
-
+	</div>
   </div> 
   <footer class="page-footer teal darken-2">
           <div class="container">
