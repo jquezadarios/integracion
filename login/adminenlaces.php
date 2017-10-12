@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<?php
-session_start();
-if (@!$_SESSION['user']) {
-	header("Location:index.php");
-}
-?>		
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Proyecto Academias</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-  
+    
+
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
@@ -28,13 +23,13 @@ if (@!$_SESSION['user']) {
   <!-- Navbar
     ================================================== -->
 
-
 <div class="navbar">
   <div class="navbar-inner">
 	<div class="container">
 	  <div class="nav-collapse">
 		<ul class="nav">
 			<li class=""><a href="admin.php">ADMINISTRADOR DEL SITIO</a></li>
+			<li class=""><a href="adminenlaces.php">AGREGAR ENLACES</a></li>
 			 
 	
 		</ul>
@@ -42,8 +37,7 @@ if (@!$_SESSION['user']) {
 		
 		</form>
 		<ul class="nav pull-right">
-		<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-			  <li><a href="desconectar.php"> Cerrar Cesión </a></li>			 
+			  <li><a href="index.php"> Cerrar Cesión </a></li>			 
 		</ul>
 	  </div><!-- /.nav-collapse -->
 	</div>
@@ -60,62 +54,72 @@ if (@!$_SESSION['user']) {
 		<div class="caption">
 		
 <!--///////////////////////////////////////////////////Empieza cuerpo del documento interno////////////////////////////////////////////-->
-		<h2> Administración de usuarios registrados</h2>	
-		<div class="well well-small">
-		<hr class="soft"/>
-		<h4>Edición de usuarios</h4>
-		<div class="row-fluid">
+		<h2> Agregar enlaces a cursos</h2>	
+		<div class="row" style="text-align:center">
+			<div class="span2">
+				<div class="well well-small">
+					<h4>Algebra Lineal</h4>
+					<a href="agap.php"><small>Agregar</small></a>
+				</div>
+			</div>
+			
+			<div class="span2">
+				<div class="well well-small">
+					<h4>Topografía Elemental</h4>
+					<a href="agte.php"><small>Agregar</small></a>
+				</div>
+			</div>
+			<div class="span2">
+				<div class="well well-small">
+					<h4>Fundamentos Informáticos</h4>
+					<a href="agfi.php"><small>Agregar</small></a>
+				</div>
+			</div>
+			<div class="span2">
+				<div class="well well-small">
+					<h4>Fundamentos de programación</h4>
+					<a href="agfp.php"><small>Agregar</small></a>
+				</div>
+			</div>
+			<div class="span2">
+				<div class="well well-small">
+					<h4>Fundamentos Matemáticos</h4>
+					<a href="agfm.php"><small>Agregar</small></a>
+				</div>
+			</div>
+			<div class="span2">
+				<div class="well well-small">
+					<h4>Matemáticas Discretas</h4>
+					<a href="agmd.php"><small>Agregar</small></a>
+				</div>
+			</div>
+
+	
+			<div class="span12">
+				<div class="well well-small">
+					<h4 >Computación Básica</h4>
+					<a href="agcb.php"><small>Agregar</small></a>
+
+					<h4 >Topografía Aplicada</h4>
+					<a href="agta.php"><small>Agregar</small></a>
+
+					<h4 >Escuela de Economía</h4>
+					<a href="agee.php"><small>Agregar</small></a>
+
+					<h4 >La educación a distancia, Fundamentos, Teorias y Contribuciones</h4>
+					<a href="agedf.php"><small>Agregar</small></a>
+
+					
+					<h4>Material Impreso en la educación a distancia</h4>
+					<a href="agmie.php"><small>Agregar</small></a>
+
+
+				</div>
+			</div>
 		
-		<?php
-		extract($_GET);
-		require("connect_db.php");
-
-		$sql="SELECT * FROM login WHERE id=$id";
-	//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
-		$ressql=mysqli_query($mysqli,$sql);
-		while ($row=mysqli_fetch_row ($ressql)){
-		    	$id=$row[0];
-		    	$user=$row[1];
-		    	$pass=$row[2];
-		    	$email=$row[3];
-		    	$pasadmin=$row[4];
-		    }
-
-
-
-		?>
-
-		<form action="ejecutaactualizar.php" method="post">
-				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
-				Usuario<br> <input type="text" name="user" value="<?php echo $user?>"><br>
-				Password usuario<br> <input type="text" name="pass" value="<?php echo $pass?>"><br>
-				Correo usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
-				Pssword administrador<br> <input type="text" name="pasadmin" value="<?php echo $pasadmin?>"><br>
-				
-				<br>
-				<input type="submit" value="Guardar" class="btn btn-success btn-primary">
-			</form>
-
-				  
-		
-		
-		<div class="span8">
-		
-		</div>	
-		</div>	
-		<br/>
-		
-
-
-		<!--EMPIEZA DESLIZABLE-->
-		
-		 <!--TERMINA DESLIZABLE-->
-
-
-
-		
-		
-		</div>
+			
+			
+</div>
 
 		
 
@@ -145,5 +149,3 @@ if (@!$_SESSION['user']) {
 	</style>
   </body>
 </html>
-
-

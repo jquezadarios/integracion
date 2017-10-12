@@ -14,9 +14,10 @@
 				echo ' <script language="javascript">alert("Atencion, ya existe el mail designado para un usuario, verifique sus datos");</script> ';
 			}else{
 				
+				$pass_encriptada1 = md5 ($pass); //Encriptacion nivel 1
 				//require("connect_db.php");
 //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
-				mysqli_query($mysqli,"INSERT INTO login VALUES('','$realname','$pass','$mail','','2')");
+				mysqli_query($mysqli,"INSERT INTO login VALUES('','$realname','$pass_encriptada1','$mail','','2')");
 				//echo 'Se ha registrado con exito';
 				echo ' <script language="javascript">alert("Usuario registrado con éxito");</script> ';
 				

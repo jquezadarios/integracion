@@ -3,15 +3,17 @@
 session_start();
 if (@!$_SESSION['user']) {
 	header("Location:index.php");
+}elseif ($_SESSION['rol']==2) {
+	header("Location:index2.php");
 }
-?>		
+?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Proyecto Academias</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-  
+   
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
@@ -27,7 +29,6 @@ if (@!$_SESSION['user']) {
 
   <!-- Navbar
     ================================================== -->
-
 
 <div class="navbar">
   <div class="navbar-inner">
@@ -63,40 +64,68 @@ if (@!$_SESSION['user']) {
 		<h2> Administración de usuarios registrados</h2>	
 		<div class="well well-small">
 		<hr class="soft"/>
-		<h4>Edición de usuarios</h4>
+		<h4>Tabla de Usuarios</h4>
 		<div class="row-fluid">
 		
-		<?php
-		extract($_GET);
-		require("connect_db.php");
-
-		$sql="SELECT * FROM login WHERE id=$id";
-	//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
-		$ressql=mysqli_query($mysqli,$sql);
-		while ($row=mysqli_fetch_row ($ressql)){
-		    	$id=$row[0];
-		    	$user=$row[1];
-		    	$pass=$row[2];
-		    	$email=$row[3];
-		    	$pasadmin=$row[4];
-		    }
 
 
 
-		?>
+			<?php
 
-		<form action="ejecutaactualizar.php" method="post">
-				Id<br><input type="text" name="id" value= "<?php echo $id ?>" readonly="readonly"><br>
-				Usuario<br> <input type="text" name="user" value="<?php echo $user?>"><br>
-				Password usuario<br> <input type="text" name="pass" value="<?php echo $pass?>"><br>
-				Correo usuario<br> <input type="text" name="email" value="<?php echo $email?>"><br>
-				Pssword administrador<br> <input type="text" name="pasadmin" value="<?php echo $pasadmin?>"><br>
-				
-				<br>
-				<input type="submit" value="Guardar" class="btn btn-success btn-primary">
-			</form>
+				require("connect_db.php");
+				$sql=("SELECT * FROM login");
+	
+//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
+				$query=mysqli_query($mysqli,$sql);
 
+				echo "<table border='1'; class='table table-hover';>";
+					echo "<tr class='warning'>";
+						echo "<td>Id</td>";
+						echo "<td>Usaurio</td>";
+						echo "<td>Password</td>";
+						echo "<td>Correo</td>";
+						echo "<td>Password del administrador</td>";
+						echo "<td>Editar</td>";
+						echo "<td>Borrar</td>";
+					echo "</tr>";
+
+			    
+			?>
+			  
+			<?php 
+				 while($arreglo=mysqli_fetch_array($query)){
+				  	echo "<tr class='success'>";
+				    	echo "<td>$arreglo[0]</td>";
+				    	echo "<td>$arreglo[1]</td>";
+				    	echo "<td>$arreglo[2]</td>";
+				    	echo "<td>$arreglo[3]</td>";
+				    	echo "<td>$arreglo[4]</td>";
+
+				    	echo "<td><a href='actualizar.php?id=$arreglo[0]'><img src='images/actualizar.gif' class='img-rounded'></td>";
+						echo "<td><a href='admin.php?id=$arreglo[0]&idborrar=2'><img src='images/eliminar.png' class='img-rounded'/></a></td>";
+						
+
+						
+					echo "</tr>";
+				}
+
+				echo "</table>";
+
+					extract($_GET);
+					if(@$idborrar==2){
+		
+						$sqlborrar="DELETE FROM login WHERE id=$id";
+						$resborrar=mysqli_query($mysqli,$sqlborrar);
+						echo '<script>alert("REGISTRO ELIMINADO")</script> ';
+						//header('Location: proyectos.php');
+						echo "<script>location.href='admin.php'</script>";
+					}
+
+			?>
+			
 				  
+			  			  
+			  
 		
 		
 		<div class="span8">
@@ -133,7 +162,7 @@ if (@!$_SESSION['user']) {
 <footer class="footer">
 
 <hr class="soften"/>
-<p>&copy; Copyright <br/><br/></p>
+<p>&copy; Copyright  <br/><br/></p>
  </footer>
 </div><!-- /container -->
 
@@ -145,5 +174,3 @@ if (@!$_SESSION['user']) {
 	</style>
   </body>
 </html>
-
-

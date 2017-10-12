@@ -10,7 +10,7 @@ session_start();
 
 	$username=$_POST['mail'];
 	$pass=$_POST['pass'];
-
+	
 
 	//la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
 	$sql2=mysqli_query($mysqli,"SELECT * FROM login WHERE email='$username'");
@@ -27,9 +27,9 @@ session_start();
 	}
 
 
-	$sql=mysqli_query($mysqli,"SELECT * FROM login WHERE email='$username'");
-	if($f=mysqli_fetch_assoc($sql)){
-		if($pass==$f['password']){
+	$sql=mysqli_query($mysqli,"SELECT * FROM login WHERE email='$username'" );
+	if($f=mysqli_fetch_assoc($sql)){	
+            if(md5($pass) ==$f['password']){
 			$_SESSION['id']=$f['id'];
 			$_SESSION['user']=$f['user'];
 			$_SESSION['rol']=$f['rol'];

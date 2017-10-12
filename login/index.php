@@ -39,7 +39,7 @@
   <div class="container">
     <div class="row">
       <div class="col m12">
-        <div class="card-panel #ec407a pink lighten-1">Bienvenido "nombre de usuario".</div>
+        <div class="card-panel #ec407a pink lighten-1">Ingrese</div>
       </div>
  
 <center><div class="tit"><h2 style="color: #0000FF; ">Inicio de sesión</h2>
@@ -103,9 +103,6 @@
 		</div></center></div></center>
     
 	
-
-    <div class="row">
-
     </div>
     <!--lo nuevoooooooooooooooooooooooooooooooooo-->
 
@@ -136,6 +133,13 @@
           </div>
         </footer>
 </html>
+
+
+
+
+
+
+
 
 
 
