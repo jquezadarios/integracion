@@ -17,6 +17,7 @@
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="js/jquery.js"></script>
   <script src="js/materialize.min.js"></script>
+  </script>
   <script>
     $(document).ready(function(){
       $(".button-collapse").sideNav();
@@ -40,6 +41,16 @@
 
 
   </script>
+
+
+   <style>
+    canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+
 </head>
 <body style="background-color:#F5B7B1;"> 
   <header>
@@ -90,6 +101,8 @@
 </div>
 
 </div>
+
+<!-- insertar alimento -->
       </div>
 	</div>
        <div class="row">
@@ -110,8 +123,6 @@
       </div>
     </div>
   </div>
-        
-		
 
             </div>
             <div class="card-action">
@@ -119,37 +130,138 @@
             </div>
           </div>
         </div>
+
+
+
+
+
+
+
+<!-- grafico circular -->
      
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 	<div class="row">
         <div class="col s12 m6">
-          <div class="card #ec407a pink lighten-1">
-            <div class="card-content white-text">
+         <div class="card #ec407a pink lighten-1">
+            <div style="height:335px"> <div class="card-content white-text">
               <span class="card-title ">Total calorias consumidas dia.</span>
-              <p>en esta parte va un pequeño grafico (circular) con las calorias y porcentage de las calorias consumidas del dia, esto va a la derecha del cuadro de insertar alimento</p>
-	<img src="http://www.eduliticas.com/wp-content/uploads/2015/07/diagrama-de-sectores.png" alt="description" title="tool tip" width="" height="" />
+		<div style=" width:600px; margin-left:-80px"> <canvas id="doughnut-chart" width="500" height="150"></canvas></div>
             </div>
           </div>
         </div>
       </div>
     </div>
+ </div>
+	<script>
+	new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Calorias consumidas.",
+	       "Maximo de calorias"],
+      datasets: [
+        {
+          label: "",
+          backgroundColor: ["#3e95cd",
+                            "#8e5ea2"],
+          data: [600,
+                 1200]
+        }
+      ]
+    },
+    options: {
+	legend: {
+		labels: {
+			fontColor: "#ffffff" } 
+	}
+    }
+});
+</script>
 
 
 
+
+
+
+
+
+<!-- grafico de lineas -->
     <div class="row">
       <div width:800px>
         <div class="card-panel #ec407a pink lighten-1">
           <span class="white-text">Aqui van los graficos con todos los datos del usuario 
 	  <br>
-          <img src="http://leanblitzconsulting.com/wp-content/uploads/2013/01/Control-Chart-Example.gif" alt="description" title="tool tip" width="" height="" /> </span>
+          <br>
+	 </span>
+<canvas id="myChart"></canvas>   
         </div>
       </div>
     </div>
-            
+        <script>
+var ctx = document.getElementById('myChart').getContext("2d")
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["ENE", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AGOS", "SEP" ,"OCT","NOV","DIC"],
+        datasets: [{
+            label: "Data",
+            borderColor: "#80b6f4",
+            pointBorderColor: "#80b6f4",
+            pointBackgroundColor: "#80b6f4",
+            pointHoverBackgroundColor: "#80b6f4",
+            pointHoverBorderColor: "#80b6f4",
+            pointBorderWidth: 10,
+            pointHoverRadius: 10,
+            pointHoverBorderWidth: 1,
+            pointRadius: 3,
+            fill: false,
+            borderWidth: 4,
+            data: [100, 120, 150, 170, 180, 170, 160, 120,100,80,150,90]
+        }]
+    },
+    options: {
+        legend: {
+            position: "bottom"
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "rgba(0,0,0,0.5)",
+                    fontStyle: "bold",
+                    beginAtZero: true,
+                    maxTicksLimit: 5,
+                    padding: 20
+                },
+                gridLines: {
+                    drawTicks: false,
+                    display: false
+                }
+
+}],
+            xAxes: [{
+                gridLines: {
+                    zeroLineColor: "transparent"
+
+},
+                ticks: {
+                    padding: 20,
+                    fontColor: "rgba(0,0,0,0.5)",
+                    fontStyle: "bold"
+                }
+            }]
+        }
+    }
+});
 
 
 
 
+</script>   
+
+
+
+<!-- final de la pagina -->
     <div class="row">
 
     </div>
