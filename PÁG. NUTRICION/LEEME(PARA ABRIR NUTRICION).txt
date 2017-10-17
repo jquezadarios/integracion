@@ -1,0 +1,1 @@
+Para el que no sabe, tienen que copiar el html nutriciony el php fetch en xampp/htdocs. Luego ir al navegador y poner localhost, desde ahí tienen que abrir nutricion
