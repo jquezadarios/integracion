@@ -7,7 +7,7 @@ if(isset($_POST["query"]))
  $query = "
   SELECT * FROM alimentos 
   WHERE Nombre LIKE '%".$search."%'
-  OR ID_A LIKE '%".$search."%' 
+  
   ";
 }
 else
@@ -26,7 +26,7 @@ if(mysqli_num_rows($result) > 0)
   <table class"table table bordered">
   <tr>
 
-    <th>ID_A</th>
+    
        
     <th>Nombre</th>
 
@@ -63,7 +63,7 @@ if(mysqli_num_rows($result) > 0)
   <tr>
     
     
-    <td>'.$row["ID_A"].'</td>
+    
 
         
     <td>'.$row["Nombre"].'</td>
