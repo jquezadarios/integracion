@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-10-2017 a las 18:02:50
+-- Tiempo de generación: 17-10-2017 a las 16:28:30
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -29,21 +29,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `alimentos` (
   `ID_A` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
-  `Calorías(Kcal)` int(7) NOT NULL,
-  `Proteínas(g)` int(4) NOT NULL,
-  `Colesterol(mg)` int(4) NOT NULL,
-  `Grasas totales(g)` int(4) NOT NULL,
-  `Sodio(Mg)` int(5) NOT NULL,
-  `Carbohidratos(g)` int(4) NOT NULL,
-  `Azúcar(g)` int(4) NOT NULL,
-  `Vitaminas(g)` int(4) NOT NULL
+  `Calorias` int(7) NOT NULL,
+  `Proteinas` int(4) NOT NULL,
+  `Colesterol` int(4) NOT NULL,
+  `Grasas_totales` int(4) NOT NULL,
+  `Sodio` int(5) NOT NULL,
+  `Carbohidratos` int(4) NOT NULL,
+  `Azucar` int(4) NOT NULL,
+  `Vitaminas` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `alimentos`
 --
 
-INSERT INTO `alimentos` (`ID_A`, `Nombre`, `Calorías(Kcal)`, `Proteínas(g)`, `Colesterol(mg)`, `Grasas totales(g)`, `Sodio(Mg)`, `Carbohidratos(g)`, `Azúcar(g)`, `Vitaminas(g)`) VALUES
+INSERT INTO `alimentos` (`ID_A`, `Nombre`, `Calorias`, `Proteinas`, `Colesterol`, `Grasas_totales`, `Sodio`, `Carbohidratos`, `Azucar`, `Vitaminas`) VALUES
 (1, 'Pan', 237, 6, 6, 1, 85, 52, 8, 0),
 (2, 'Leche(Entera)', 155, 8, 0, 9, 0, 13, 0, 7),
 (3, 'Leche(Descremada)', 351, 35, 3, 15, 0, 48, 0, 36),
