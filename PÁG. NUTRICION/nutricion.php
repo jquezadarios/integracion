@@ -7,8 +7,8 @@
 	}elseif ($_SESSION['rol']==1) {
 		header("Location:../login/admin.php");
 	}
-	?>
-<?php
+
+?>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -107,36 +107,57 @@ $(document).ready(function(){
 
 </div>
 
-<!-- insertar alimento -->
-      </div>
-	</div>
-       <div class="container">
-        <div class="row">
-          <div class="col s12 m20">
-           <div class="card #ec407a pink lighten-1">
-            <div style="height:800px"> 
-              <div class="card-content white-text">
-   
-   <h2 align="center">Busca tu alimento</h2>
-   <div class="form-group">
-    <div class="input-group">
-     <span class="input-group-addon">Busca:</span>
-     <input type="text" name="search_text" id="search_text" placeholder="Busca alimentos..." class="form-control" />
-    </div>
-   </div>
-   <div id="result"></div>
-              </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+<div class="row">
+        <div class="col s12 m6">
+         <div class="card #ec407a pink lighten-1">
+            <div style="height:335px"> <div class="card-content white-text">
+              <span class="card-title ">Datos:</span>
+
+
+
+
+		
+<?php
+$con=mysqli_connect("localhost", "root","", "academ");
+$email=$_SESSION['email'];
+$sql="SELECT * FROM login WHERE email='$email'";
+
+if ($result=mysqli_query($con,$sql))
+  {
+
+  while ($row=mysqli_fetch_array($result))
+    { 
+    echo "<p style='font-size:20px;'>nombre: ". $row["user"]."</p><br>";
+    echo "<p style='font-size:20px;'>peso: ". $row["peso"]." kg</p><br>";
+    echo "<p style='font-size:20px;'>altura: ". $row["altura"]. " cm</p><br>"; 
+    echo "<p style='font-size:20px;'>imc: ".$row["imc"]." </p><br>";
+    }
+
+  mysqli_free_result($result);
+}
+
+mysqli_close($con);
+?> 
+
+
+
+
+	
+
+		<div > </canvas></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-<!-- grafico circular -->
-     
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 
 	<div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m6	">
          <div class="card #ec407a pink lighten-1">
             <div style="height:335px"> <div class="card-content white-text">
               <span class="card-title ">Total calorias consumidas dia.</span>
@@ -171,6 +192,34 @@ $(document).ready(function(){
     }
 });
 </script>
+
+<!-- insertar alimento -->
+      </div>
+	</div>
+       <div class="container">
+        <div class="row">
+          <div class="col s12 m20">
+           <div class="card #ec407a pink lighten-1">
+            <div style="height:800px"> 
+              <div class="card-content white-text">
+   
+   <h2 align="center">Busca tu alimento</h2>
+   <div class="form-group">
+    <div class="input-group">
+     <span class="input-group-addon">Busca:</span>
+     <input type="text" name="search_text" id="search_text" placeholder="Busca alimentos..." class="form-control" />
+    </div>
+   </div>
+   <div id="result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- grafico circular -->
+     
+	
 
 
 

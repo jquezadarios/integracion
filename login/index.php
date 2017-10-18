@@ -74,7 +74,7 @@
     <legend  style="font-size: 18pt; color:#ffffff;"><b>Registro</b></legend>
     <div class="form-group">
       <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu nombre</b></label>
-      <input style="color:#ffffff;" type="text" name="realname" class="form-control" placeholder="Ingresa tu nombre" />
+      <input style="color:#ffffff;" type="text" name="nombre" class="form-control" placeholder="Ingresa tu nombre" />
     </div>
     <div class="form-group">
       <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu email</b></label>

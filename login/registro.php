@@ -1,6 +1,6 @@
 <?php
 
-	$realname=$_POST['realname'];
+	$realname=$_POST['nombre'];
 	$mail=$_POST['nick'];
 	$pass= $_POST['pass'];
 	$rpass=$_POST['rpass'];
@@ -9,7 +9,10 @@
 	$sexo=$_POST['sexo'];
 	$alturav = substr($altura,0,1).".".substr($altura,1,3);
 	$imc= $peso/($alturav**2);
-	echo $imc;
+}
+
+
+
 
 	require("connect_db.php");
 //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");

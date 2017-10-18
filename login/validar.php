@@ -33,8 +33,8 @@ session_start();
 			$_SESSION['id']=$f['id'];
 			$_SESSION['user']=$f['user'];
 			$_SESSION['rol']=$f['rol'];
-
-			header("Location: ../PÁG. NUTRICION/nutricion.html");
+			$_SESSION['email']=$f['email'];
+			header("Location: ../PÁG. NUTRICION/nutricion.php");
 		}else{
 			echo '<script>alert("CONTRASEÑA INCORRECTA")</script> ';
 		
