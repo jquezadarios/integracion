@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-10-2017 a las 23:55:40
+-- Tiempo de generación: 18-10-2017 a las 04:54:08
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -97,17 +97,23 @@ CREATE TABLE `login` (
   `password` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `pasadmin` varchar(250) NOT NULL,
-  `rol` int(3) NOT NULL
+  `rol` int(3) NOT NULL,
+  `peso` int(11) NOT NULL,
+  `altura` int(20) NOT NULL,
+  `sexo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `login`
 --
 
-INSERT INTO `login` (`id`, `user`, `password`, `email`, `pasadmin`, `rol`) VALUES
-(1, 'Administrador', '', 'admin@gmail.com', '123456', 1),
-(6, 'joako', '7815696ecbf1c96e6894b779456d330e', 'asdasd', '', 2),
-(7, 'john', '7815696ecbf1c96e6894b779456d330e', 'joako123@gmail.com', '', 2);
+INSERT INTO `login` (`id`, `user`, `password`, `email`, `pasadmin`, `rol`, `peso`, `altura`, `sexo`) VALUES
+(1, 'Administrador', '', 'admin@gmail.com', '123456', 1, 0, 0, '0'),
+(10, 'hola', '040b7cf4a55014e185813e0644502ea9', 'askdas@gmail.com', '', 2, 0, 0, '0'),
+(11, 'v', '9e3669d19b675bd57058fd4664205d2a', 'v', '', 2, 1, 1, ''),
+(12, 'c', '4a8a08f09d37b73795649038408b5f33', 'c', '', 2, 2, 3, ''),
+(13, 'b', '92eb5ffee6ae2fec3ad71c777531578f', 'b', '', 2, 1, 1, 'on'),
+(14, 'z', 'fbade9e36a3f36d3d676c1b808451dd7', 'z', '', 2, 1, 1, 'hombre');
 
 -- --------------------------------------------------------
 
@@ -121,11 +127,12 @@ CREATE TABLE `seguimiento_usuario` (
   `ID_U` int(4) NOT NULL,
   `Calculo_IMC` varchar(30) NOT NULL,
   `Calculo_Kcal` varchar(30) NOT NULL,
-  `Peso_Fecha` varchar(50) NOT NULL,
+  `Peso` int(20) NOT NULL,
   `calorias_Dia` int(10) NOT NULL,
   `calorias_Mes` int(11) NOT NULL,
   `id` int(20) NOT NULL,
-  `fecha` date NOT NULL
+  `fecha` date NOT NULL,
+  `altura` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -155,9 +162,12 @@ ALTER TABLE `login`
 --
 ALTER TABLE `seguimiento_usuario`
   ADD PRIMARY KEY (`ID_S`),
+  ADD UNIQUE KEY `ID_A_2` (`ID_A`),
+  ADD UNIQUE KEY `ID_A_4` (`ID_A`),
   ADD KEY `ID_A` (`ID_A`),
   ADD KEY `ID_U` (`ID_U`),
-  ADD KEY `id` (`id`);
+  ADD KEY `id` (`id`),
+  ADD KEY `ID_A_3` (`ID_A`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -179,13 +189,13 @@ ALTER TABLE `cuenta_usuario`
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
-  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -195,7 +205,6 @@ ALTER TABLE `seguimiento_usuario`
 -- Filtros para la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
-  ADD CONSTRAINT `seguimiento_usuario_ibfk_1` FOREIGN KEY (`ID_A`) REFERENCES `alimentos` (`ID_A`),
   ADD CONSTRAINT `seguimiento_usuario_ibfk_2` FOREIGN KEY (`ID_U`) REFERENCES `cuenta_usuario` (`ID_U`),
   ADD CONSTRAINT `seguimiento_usuario_ibfk_3` FOREIGN KEY (`id`) REFERENCES `login` (`id`);
 COMMIT;

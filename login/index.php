@@ -88,8 +88,27 @@
       <label style="font-size: 14pt; color:#ffffff;"><b>Repite tu contraseña</b></label>
       <input  style="color:#ffffff;" type="password" name="rpass" class="form-control" required placeholder="repite contraseña" />
     </div>
-      
-    </div>
+
+<div class="form-group">
+      <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu peso(kg)</b></label>
+      <input style="color:#ffffff;" type="text" name="peso" class="form-control" placeholder="Ingresa tu nombre" />
+	</div>
+
+<div class="form-group">
+      <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu altura(cm)</b></label>
+      <input style="color:#ffffff;" type="text" name="altura" class="form-control" placeholder="Ingresa tu nombre" />
+	</div>
+	<div class="form-group">
+      <p>
+      <input name="sexo" type="radio" id="test1" value="hombre"/>
+      <label for="test1" style="color:#ffffff;">Hombre</label>
+    </p>
+    <p>
+      <input name="sexo" type="radio" id="test2" value="mujer"/>
+      <label for="test2" style="color:#ffffff;">Mujer</label>
+    </p>
+    <p>
+</div>
    
     <input  class="btn btn-danger" type="submit" name="submit" value="Registrarse"/>
 
