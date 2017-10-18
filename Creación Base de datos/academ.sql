@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-10-2017 a las 04:54:08
+-- Tiempo de generación: 18-10-2017 a las 18:29:43
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -100,20 +100,27 @@ CREATE TABLE `login` (
   `rol` int(3) NOT NULL,
   `peso` int(11) NOT NULL,
   `altura` int(20) NOT NULL,
-  `sexo` varchar(10) NOT NULL
+  `sexo` varchar(10) NOT NULL,
+  `imc` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `login`
 --
 
-INSERT INTO `login` (`id`, `user`, `password`, `email`, `pasadmin`, `rol`, `peso`, `altura`, `sexo`) VALUES
-(1, 'Administrador', '', 'admin@gmail.com', '123456', 1, 0, 0, '0'),
-(10, 'hola', '040b7cf4a55014e185813e0644502ea9', 'askdas@gmail.com', '', 2, 0, 0, '0'),
-(11, 'v', '9e3669d19b675bd57058fd4664205d2a', 'v', '', 2, 1, 1, ''),
-(12, 'c', '4a8a08f09d37b73795649038408b5f33', 'c', '', 2, 2, 3, ''),
-(13, 'b', '92eb5ffee6ae2fec3ad71c777531578f', 'b', '', 2, 1, 1, 'on'),
-(14, 'z', 'fbade9e36a3f36d3d676c1b808451dd7', 'z', '', 2, 1, 1, 'hombre');
+INSERT INTO `login` (`id`, `user`, `password`, `email`, `pasadmin`, `rol`, `peso`, `altura`, `sexo`, `imc`) VALUES
+(1, 'Administrador', '', 'admin@gmail.com', '123456', 1, 0, 0, '0', 0),
+(10, 'hola', '040b7cf4a55014e185813e0644502ea9', 'askdas@gmail.com', '', 2, 0, 0, '0', 0),
+(11, 'v', '9e3669d19b675bd57058fd4664205d2a', 'v', '', 2, 1, 1, '', 0),
+(12, 'c', '4a8a08f09d37b73795649038408b5f33', 'c', '', 2, 2, 3, '', 0),
+(13, 'b', '92eb5ffee6ae2fec3ad71c777531578f', 'b', '', 2, 1, 1, 'on', 0),
+(15, 'dfs', 'd9729feb74992cc3482b350163a1a010', 'sdf', '', 2, 123, 123, '', 0),
+(16, 'zxc', '5fa72358f0b4fb4f2c5d7de8c9a41846', 'zxc', '', 2, 1, 2, 'hombre', 0),
+(17, 'gf', '38d7355701b6f3760ee49852904319c1', 'gfd', '', 2, 60, 179, 'hombre', 0),
+(18, 'asdasdasd', '7815696ecbf1c96e6894b779456d330e', 'asdas', '', 2, 10, 1, 'hombre', 10),
+(19, 'asdasd', '7815696ecbf1c96e6894b779456d330e', 'asdasdasdasd', '', 2, 60, 2, 'hombre', 19),
+(20, 'zz', '25ed1bcb423b0b7200f485fc5ff71c8e', 'zz', '', 2, 60, 2, 'hombre', 19),
+(21, 'aa', '4124bc0a9335c27f086f24ba207a4912', 'aa', '', 2, 60, 179, 'hombre', 19);
 
 -- --------------------------------------------------------
 
@@ -189,13 +196,13 @@ ALTER TABLE `cuenta_usuario`
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
-  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

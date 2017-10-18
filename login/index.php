@@ -95,7 +95,7 @@
 	</div>
 
 <div class="form-group">
-      <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu altura(cm)</b></label>
+      <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu altura(m)</b></label>
       <input style="color:#ffffff;" type="text" name="altura" class="form-control" placeholder="Ingresa tu nombre" />
 	</div>
 	<div class="form-group">
@@ -109,7 +109,7 @@
     </p>
     <p>
 </div>
-   
+
     <input  class="btn btn-danger" type="submit" name="submit" value="Registrarse"/>
 
   </fieldset>

@@ -7,6 +7,9 @@
 	$peso=$_POST['peso'];
 	$altura=$_POST['altura'];
 	$sexo=$_POST['sexo'];
+	$alturav = substr($altura,0,1).".".substr($altura,1,3);
+	$imc= $peso/($alturav**2);
+	echo $imc;
 
 	require("connect_db.php");
 //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
@@ -20,7 +23,7 @@
 				$pass_encriptada1 = md5 ($pass); //Encriptacion nivel 1
 				//require("connect_db.php");
 //la variable  $mysqli viene de connect_db que lo traigo con el require("connect_db.php");
-				mysqli_query($mysqli,"INSERT INTO login VALUES('','$realname','$pass_encriptada1','$mail','','2','$peso','$altura','$sexo')");
+				mysqli_query($mysqli,"INSERT INTO login VALUES('','$realname','$pass_encriptada1','$mail','','2','$peso','$altura','$sexo', '$imc')");
 				//echo 'Se ha registrado con exito';
 				echo ' <script language="javascript">alert("Usuario registrado con éxito");</script> ';
 				
