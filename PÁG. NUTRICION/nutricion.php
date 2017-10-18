@@ -90,15 +90,14 @@ $(document).ready(function(){
   
 	<div class="container">
 	  		<ul class="nav" color=white>
-			<li class=""><a href="nutricion.html">Principal</a></li>
 	
 		</ul>
 		<form action="#" class="navbar-search form-inline" style="margin-top:6px">
 		
 		</form>
 		<ul >
-				<li><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a></li>
-			  <li><a href="../login/desconectar.php"> Cerrar Cesión </a></li>			 
+				<p style='font-size:20px;'> Bienvenido <?php echo $_SESSION['user'];?>
+			  <li><a style="font-size:20px;" href="../login/desconectar.php" style='font-size:20px;'> Cerrar sesión </a></li>			 
 		</ul>
 	 
 	</div>
@@ -134,6 +133,7 @@ if ($result=mysqli_query($con,$sql))
     echo "<p style='font-size:20px;'>peso: ". $row["peso"]." kg</p><br>";
     echo "<p style='font-size:20px;'>altura: ". $row["altura"]. " cm</p><br>"; 
     echo "<p style='font-size:20px;'>imc: ".$row["imc"]." </p><br>";
+    echo "<p style='font-size:20px;'>calorias diarias recomendadas: ".$row["cal"]." </p><br>";
     }
 
   mysqli_free_result($result);

@@ -91,24 +91,49 @@
 
 <div class="form-group">
       <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu peso(kg)</b></label>
-      <input style="color:#ffffff;" type="text" name="peso" class="form-control" placeholder="Ingresa tu nombre" />
+      <input style="color:#ffffff;" type="text" name="peso" class="form-control" placeholder="Ingresa tu peso" />
 	</div>
 
 <div class="form-group">
       <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu altura(m)</b></label>
-      <input style="color:#ffffff;" type="text" name="altura" class="form-control" placeholder="Ingresa tu nombre" />
+      <input style="color:#ffffff;" type="text" name="altura" class="form-control" placeholder="Ingresa tu altura" />
 	</div>
-	<div class="form-group">
-      <p>
+
+<div class="form-group">
+      <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu edad</b></label>
+      <input style="color:#ffffff;" type="text" name="edad" class="form-control" placeholder="Ingresa tu edad" />
+	</div>
+<div class="form-group">
       <input name="sexo" type="radio" id="test1" value="hombre"/>
       <label for="test1" style="color:#ffffff;">Hombre</label>
-    </p>
-    <p>
+
       <input name="sexo" type="radio" id="test2" value="mujer"/>
       <label for="test2" style="color:#ffffff;">Mujer</label>
-    </p>
-    <p>
+
 </div>
+<br>
+ <label style="font-size: 14pt; color:#ffffff;"><b>Selecciona tu nivel de actividad:</b></label>
+<div class="form-group">
+      <input name="act" type="radio" id="prob" value="1"/>
+      <label for="prob" style="color:#ffffff;">poca actividad</label>
+
+      <input name="act" type="radio" id="prob2" value="2"/>
+      <label for="prob2" style="color:#ffffff;">actividad ligera</label>
+
+	<input name="act" type="radio" id="prob3" value="3"/>
+      <label for="prob3" style="color:#ffffff;">actividad moderada</label>
+
+<input name="act" type="radio" id="prob4" value="4"/>
+      <label for="prob4" style="color:#ffffff;">activdad intensa</label>
+
+<input name="act" type="radio" id="prob5" value="5"/>
+      <label for="prob5" style="color:#ffffff;">actividad extrema</label>
+
+</div>
+
+</form>
+</div>
+<br>
 
     <input  class="btn btn-danger" type="submit" name="submit" value="Registrarse"/>
 
