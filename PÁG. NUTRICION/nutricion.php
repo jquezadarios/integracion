@@ -133,6 +133,7 @@ if ($result=mysqli_query($con,$sql))
     echo "<p style='font-size:20px;'>peso: ". $row["peso"]." kg</p><br>";
     echo "<p style='font-size:20px;'>altura: ". $row["altura"]. " cm</p><br>"; 
     echo "<p style='font-size:20px;'>imc: ".$row["imc"]." </p><br>";
+    $cal=$row["cal"];
     echo "<p style='font-size:20px;'>calorias diarias recomendadas: ".$row["cal"]." </p><br>";
     }
 
@@ -154,6 +155,33 @@ mysqli_close($con);
       </div>
     </div>
 
+<?php
+$con=mysqli_connect("localhost", "root","", "academ");
+$email=$_SESSION['email'];
+$sql="SELECT * FROM seguimiento_usuario,login WHERE seguimiento_usuario.id=login.id and fecha=curdate()";
+if ($result=mysqli_query($con,$sql))
+  {
+
+  while ($row=mysqli_fetch_array($result))
+    {
+    $cals=$row["calorias_Dia"];
+	} }
+?>
+
+<?php
+$total=[];
+$con=mysqli_connect("localhost", "root","", "academ");
+$email=$_SESSION['email'];
+foreach (range(0, 12, 1) as $número) {
+$sql="SELECT * FROM seguimiento_usuario,login WHERE seguimiento_usuario.id=login.id and MONTH(fecha)=0$número";
+if ($result=mysqli_query($con,$sql))
+  {
+  while ($row=mysqli_fetch_array($result))
+    {
+    $total[$número]=$row["calorias_Mes"];
+	} } }
+?>
+
 
 
 	<div class="row">
@@ -169,6 +197,8 @@ mysqli_close($con);
     </div>
  </div>
 	<script>
+	var cals = "<?php echo $cals; ?>";
+	var htmlstring = "<?php echo $cal-$cals; ?>";
 	new Chart(document.getElementById("doughnut-chart"), {
     type: 'doughnut',
     data: {
@@ -179,8 +209,8 @@ mysqli_close($con);
           label: "",
           backgroundColor: ["#3e95cd",
                             "#8e5ea2"],
-          data: [600,
-                 1200]
+          data: [cals,
+                 htmlstring]
         }
       ]
     },
@@ -241,6 +271,22 @@ mysqli_close($con);
       </div>
     </div>
         <script>
+
+var mes1 = "<?php echo $total[1]; ?>";
+var mes2 = "<?php echo $total[2]; ?>";
+var mes3 = "<?php echo $total[3]; ?>";
+var mes4 = "<?php echo $total[4]; ?>";
+var mes5 = "<?php echo $total[5]; ?>";
+var mes6 = "<?php echo $total[6]; ?>";
+var mes7 = "<?php echo $total[7]; ?>";
+var mes8 = "<?php echo $total[8]; ?>";
+var mes9 = "<?php echo $total[9]; ?>";
+var mes10 = "<?php echo $total[10]; ?>";
+var mes11 = "<?php echo $total[11]; ?>";
+var mes12 = "<?php echo $total[12]; ?>";
+
+
+
 var ctx = document.getElementById('myChart').getContext("2d")
 
 var myChart = new Chart(ctx, {
@@ -260,7 +306,7 @@ var myChart = new Chart(ctx, {
             pointRadius: 3,
             fill: false,
             borderWidth: 4,
-            data: [100, 120, 150, 170, 180, 170, 160, 120,100,80,150,90]
+            data: [mes1, mes2, mes3, mes4, mes5, mes6, mes7,mes8,mes9,mes10,mes11,mes12]
         }]
     },
     options: {

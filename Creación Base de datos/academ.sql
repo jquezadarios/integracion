@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-10-2017 a las 02:46:15
+-- Tiempo de generación: 19-10-2017 a las 03:32:57
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -72,22 +72,6 @@ INSERT INTO `alimentos` (`ID_A`, `Nombre`, `Calorias`, `Proteinas`, `Colesterol`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cuenta_usuario`
---
-
-CREATE TABLE `cuenta_usuario` (
-  `ID_U` int(11) NOT NULL,
-  `Nombre` varchar(20) NOT NULL,
-  `Apellido` varchar(20) NOT NULL,
-  `Fecha_Nacimiento` int(11) NOT NULL,
-  `Peso(Kg)` int(5) NOT NULL,
-  `Altura(Cm)` int(4) NOT NULL,
-  `Sexo` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `login`
 --
 
@@ -148,7 +132,19 @@ CREATE TABLE `seguimiento_usuario` (
 --
 
 INSERT INTO `seguimiento_usuario` (`ID_S`, `calorias_Dia`, `calorias_Mes`, `id`, `fecha`) VALUES
-(2, 600, 0, 26, '2017-10-18');
+(2, 600, 0, 26, '2017-10-18'),
+(6, 300, 20000, 26, '2017-01-19'),
+(7, 0, 22000, 26, '2017-02-19'),
+(8, 0, 26000, 26, '2017-03-19'),
+(9, 0, 18000, 26, '2017-04-19'),
+(10, 0, 14000, 26, '2017-05-19'),
+(11, 0, 19000, 26, '2017-06-19'),
+(12, 0, 14000, 26, '2017-07-19'),
+(13, 0, 20000, 26, '2017-08-19'),
+(14, 0, 11000, 26, '2017-09-19'),
+(15, 0, 19000, 26, '2017-10-19'),
+(16, 0, 16000, 26, '2017-11-19'),
+(17, 0, 21000, 26, '2017-12-19');
 
 --
 -- Índices para tablas volcadas
@@ -159,12 +155,6 @@ INSERT INTO `seguimiento_usuario` (`ID_S`, `calorias_Dia`, `calorias_Mes`, `id`,
 --
 ALTER TABLE `alimentos`
   ADD PRIMARY KEY (`ID_A`);
-
---
--- Indices de la tabla `cuenta_usuario`
---
-ALTER TABLE `cuenta_usuario`
-  ADD PRIMARY KEY (`ID_U`);
 
 --
 -- Indices de la tabla `login`
@@ -190,12 +180,6 @@ ALTER TABLE `alimentos`
   MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT de la tabla `cuenta_usuario`
---
-ALTER TABLE `cuenta_usuario`
-  MODIFY `ID_U` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
@@ -205,7 +189,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT de la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
-  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas
