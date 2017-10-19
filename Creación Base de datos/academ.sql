@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-10-2017 a las 00:51:03
+-- Tiempo de generación: 19-10-2017 a las 02:46:15
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -137,17 +137,18 @@ INSERT INTO `login` (`id`, `user`, `password`, `email`, `pasadmin`, `rol`, `peso
 
 CREATE TABLE `seguimiento_usuario` (
   `ID_S` int(4) NOT NULL,
-  `ID_A` int(4) NOT NULL,
-  `ID_U` int(4) NOT NULL,
-  `Calculo_IMC` varchar(30) NOT NULL,
-  `Calculo_Kcal` varchar(30) NOT NULL,
-  `Peso` int(20) NOT NULL,
   `calorias_Dia` int(10) NOT NULL,
   `calorias_Mes` int(11) NOT NULL,
   `id` int(20) NOT NULL,
-  `fecha` date NOT NULL,
-  `altura` int(20) NOT NULL
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `seguimiento_usuario`
+--
+
+INSERT INTO `seguimiento_usuario` (`ID_S`, `calorias_Dia`, `calorias_Mes`, `id`, `fecha`) VALUES
+(2, 600, 0, 26, '2017-10-18');
 
 --
 -- Índices para tablas volcadas
@@ -176,12 +177,7 @@ ALTER TABLE `login`
 --
 ALTER TABLE `seguimiento_usuario`
   ADD PRIMARY KEY (`ID_S`),
-  ADD UNIQUE KEY `ID_A_2` (`ID_A`),
-  ADD UNIQUE KEY `ID_A_4` (`ID_A`),
-  ADD KEY `ID_A` (`ID_A`),
-  ADD KEY `ID_U` (`ID_U`),
-  ADD KEY `id` (`id`),
-  ADD KEY `ID_A_3` (`ID_A`);
+  ADD KEY `id` (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -209,7 +205,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT de la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
-  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -219,7 +215,6 @@ ALTER TABLE `seguimiento_usuario`
 -- Filtros para la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
-  ADD CONSTRAINT `seguimiento_usuario_ibfk_2` FOREIGN KEY (`ID_U`) REFERENCES `cuenta_usuario` (`ID_U`),
   ADD CONSTRAINT `seguimiento_usuario_ibfk_3` FOREIGN KEY (`id`) REFERENCES `login` (`id`);
 COMMIT;
 
