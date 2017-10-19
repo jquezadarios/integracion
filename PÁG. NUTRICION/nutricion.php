@@ -158,7 +158,7 @@ mysqli_close($con);
 <?php
 $con=mysqli_connect("localhost", "root","", "academ");
 $email=$_SESSION['email'];
-$sql="SELECT * FROM seguimiento_usuario,login WHERE seguimiento_usuario.id=login.id and fecha=curdate()";
+$sql="SELECT * FROM seguimiento_usuario,login WHERE login.email='$email' and seguimiento_usuario.id=login.id and fecha=curdate()";
 if ($result=mysqli_query($con,$sql))
   {
 
@@ -173,7 +173,7 @@ $total=[];
 $con=mysqli_connect("localhost", "root","", "academ");
 $email=$_SESSION['email'];
 foreach (range(0, 12, 1) as $número) {
-$sql="SELECT * FROM seguimiento_usuario,login WHERE seguimiento_usuario.id=login.id and MONTH(fecha)=0$número";
+$sql="SELECT * FROM seguimiento_usuario,login WHERE login.email='$email' and seguimiento_usuario.id=login.id and MONTH(fecha)=0$número";
 if ($result=mysqli_query($con,$sql))
   {
   while ($row=mysqli_fetch_array($result))
