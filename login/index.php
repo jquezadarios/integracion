@@ -95,7 +95,7 @@
 	</div>
 
 <div class="form-group">
-      <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu altura(m)</b></label>
+      <label style="font-size: 14pt; color:#ffffff;"><b>Ingresa tu altura(cm)</b></label>
       <input style="color:#ffffff;" type="text" name="altura" class="form-control" placeholder="Ingresa tu altura" />
 	</div>
 

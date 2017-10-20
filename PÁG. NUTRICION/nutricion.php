@@ -109,8 +109,8 @@ $(document).ready(function(){
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 
-<div class="row">
-        <div class="col s12 m6">
+<div class="row" style="display: inline-block; 	width:560px;">
+         <div class="col s12 m6" style="width:100%;">
          <div class="card #ec407a pink lighten-1">
             <div style="height:335px"> <div class="card-content white-text">
               <span class="card-title ">Datos:</span>
@@ -161,10 +161,10 @@ $email=$_SESSION['email'];
 $sql="SELECT * FROM seguimiento_usuario,login WHERE login.email='$email' and seguimiento_usuario.id=login.id and fecha=curdate()";
 if ($result=mysqli_query($con,$sql))
   {
-
+$cals=0;
   while ($row=mysqli_fetch_array($result))
     {
-    $cals=$row["calorias_Dia"];
+    $cals=$cals+$row["calorias_Dia"];
 	} }
 ?>
 
@@ -176,16 +176,17 @@ foreach (range(0, 12, 1) as $número) {
 $sql="SELECT * FROM seguimiento_usuario,login WHERE login.email='$email' and seguimiento_usuario.id=login.id and MONTH(fecha)=0$número";
 if ($result=mysqli_query($con,$sql))
   {
+$total[$número]=0;
   while ($row=mysqli_fetch_array($result))
     {
-    $total[$número]=$row["calorias_Mes"];
+    $total[$número]=$total[$número]+$row["calorias_Mes"];
 	} } }
 ?>
 
 
 
-	<div class="row">
-        <div class="col s12 m6	">
+	<div class="row" style="display: inline-block; 	width:600px; ">
+         <div class="col s12 m6	" style="width:100%; ">
          <div class="card #ec407a pink lighten-1">
             <div style="height:335px"> <div class="card-content white-text">
               <span class="card-title ">Total calorias consumidas dia.</span>
@@ -230,10 +231,9 @@ if ($result=mysqli_query($con,$sql))
         <div class="row">
           <div class="col s12 m20">
            <div class="card #ec407a pink lighten-1">
-            <div style="height:800px"> 
               <div class="card-content white-text">
    
-   <h2 align="center">Busca tu alimento</h2>
+   <h2 align="center">Busca tu alimento.</h2>
    <div class="form-group">
     <div class="input-group">
      <span class="input-group-addon">Busca:</span>
