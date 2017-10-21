@@ -135,7 +135,27 @@ if ($result=mysqli_query($con,$sql))
     echo "<p style='font-size:20px;'>imc: ".$row["imc"]." </p><br>";
     $cal=$row["cal"];
     echo "<p style='font-size:20px;'>calorias diarias recomendadas: ".$row["cal"]." </p><br>";
-    }
+    
+if ($row["imc"]<18){
+
+	echo "<p style='font-size:20px;'>estas delgado</p>";
+}
+if ($row["imc"]>18 and $row["imc"]<=25){
+	echo "<p style='font-size:20px;'>tienes un peso normal</p>";
+} 
+if ($row["imc"]>25 and $row["imc"]<=30){
+	echo "<p style='font-size:20px;'>tienes sobrepeso</p>";
+}
+if ($row["imc"]>30 and $row["imc"]<=35){
+	echo "<p style='font-size:20px;'>tienes obesidad 1</p>";
+}
+if ($row["imc"]>35 and $row["imc"]<=40){
+	echo "<p style='font-size:20px;'>tienes obesidad 2</p>";
+}
+if ($row["imc"]>40){
+	echo "<p style='font-size:20px;'>tienes obesidad 3</p>";
+}
+}
 
   mysqli_free_result($result);
 }
@@ -179,7 +199,7 @@ if ($result=mysqli_query($con,$sql))
 $total[$número]=0;
   while ($row=mysqli_fetch_array($result))
     {
-    $total[$número]=$total[$número]+$row["calorias_Mes"];
+    $total[$número]=$total[$número]+$row["calorias_Dia"];
 	} } }
 ?>
 
@@ -190,7 +210,18 @@ $total[$número]=0;
          <div class="card #ec407a pink lighten-1">
             <div style="height:335px"> <div class="card-content white-text">
               <span class="card-title ">Total calorias consumidas dia.</span>
-		<div style=" width:600px; margin-left:-80px"> <canvas id="doughnut-chart" width="500" height="150"></canvas></div>
+		<div style=" width:600px; margin-left:-80px"> <canvas id="doughnut-chart" width="500" height="150"></canvas>
+
+
+</div><?php
+$pasaste=$cal-$cals;
+if ($pasaste<0) {
+	$pasaste=$pasaste*-1;
+	echo "<h1 style='font-size:20px;'>haz superado tu limite de calorias diarias por $pasaste</h1>";
+	
+}
+
+?>
             </div>
           </div>
         </div>
@@ -225,7 +256,7 @@ $total[$número]=0;
 </script>
 
 <!-- insertar alimento -->
-      </div>
+        </div>
 	</div>
        <div class="container">
         <div class="row">
