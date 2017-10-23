@@ -26,7 +26,7 @@ if(mysqli_num_rows($result) > 0)
   <table class"table table bordered">
   <tr>
 
-    
+    <th> elegir </th>
        
     <th>Nombre</th>
 
@@ -61,10 +61,10 @@ if(mysqli_num_rows($result) > 0)
   $output .= '
 
   <tr>
-    
-    
-    
-
+ <td> 
+ <input type="checkbox" name="id" value="'.$row["ID_A"].'" id="'.$row["ID_A"].'"><label for="'.$row["ID_A"].'"></label>
+ </td>
+   
         
     <td>'.$row["Nombre"].'</td>
 

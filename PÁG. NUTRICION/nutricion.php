@@ -256,7 +256,7 @@ if ($pasaste<0) {
 </script>
 
 <!-- insertar alimento -->
-        </div>
+      </div>
 	</div>
        <div class="container">
         <div class="row">
@@ -265,14 +265,33 @@ if ($pasaste<0) {
               <div class="card-content white-text">
    
    <h2 align="center">Busca tu alimento.</h2>
-   <div class="form-group">
+<form method="post" action="">   
+<div class="form-group">
     <div class="input-group">
-     <span class="input-group-addon">Busca:</span>
-     <input type="text" name="search_text" id="search_text" placeholder="Busca alimentos..." class="form-control" />
+     <input type="text" id="search_text" placeholder="Busca alimentos..." class="form-control" />
     </div>
+<button   class="btn btn-danger" name="submit" type="submit"> elegir </button>
    </div>
    <div id="result"></div>
               </div>
+<?php
+		if(isset($_POST['submit'])){
+			
+	$id=$_POST['id'];
+	echo $id;
+
+
+
+$con=mysqli_connect("localhost", "root","", "academ");
+$email=$_SESSION['email'];
+$sql="INSERT INTO seguimiento_usuario VALUES('',(SELECT Calorias FROM alimentos WHERE ID_A='$id'),(SELECT id FROM login WHERE email='$email'),CURRENT_TIMESTAMP())";
+mysqli_query($con,$sql);
+echo "<script>location.href='nutricion.php';</script>";
+
+
+;
+		}
+	?>
             </div>
           </div>
         </div>
