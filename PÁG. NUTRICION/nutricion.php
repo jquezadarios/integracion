@@ -18,11 +18,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
   <script>
 $(document).ready(function(){
 
  load_data();
-
  function load_data(query)
  {
   $.ajax({
@@ -268,26 +268,32 @@ if ($pasaste<0) {
 <form method="post" action="">   
 <div class="form-group">
     <div class="input-group">
-     <input type="text" id="search_text" placeholder="Busca alimentos..." class="form-control" />
+	<h3> buscar: </h3>
+     <input  type="text" id="search_text" placeholder="Busca alimentos..." class="form-control" />
+     <h3 >cantidad (g): </h3><input type="text" id="cant" name="cant" placeholder="cantidad:" class="form-control" />
     </div>
 <button   class="btn btn-danger" name="submit" type="submit"> elegir </button>
    </div>
    <div id="result"></div>
               </div>
+
 <?php
 		if(isset($_POST['submit'])){
 			
 	$id=$_POST['id'];
-	echo $id;
-
+	
+	if(""==trim($_POST['cant'])){
+	$cant=100;
+}	else{
+	$cant=$_POST['cant'];
+}
 
 
 $con=mysqli_connect("localhost", "root","", "academ");
 $email=$_SESSION['email'];
-$sql="INSERT INTO seguimiento_usuario VALUES('',(SELECT Calorias FROM alimentos WHERE ID_A='$id'),(SELECT id FROM login WHERE email='$email'),CURRENT_TIMESTAMP())";
+$sql="INSERT INTO seguimiento_usuario VALUES('',((SELECT Calorias FROM alimentos WHERE ID_A='$id')/100)*$cant,(SELECT id FROM login WHERE email='$email'),CURRENT_TIMESTAMP())";
 mysqli_query($con,$sql);
 echo "<script>location.href='nutricion.php';</script>";
-
 
 ;
 		}
