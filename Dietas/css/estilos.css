@@ -77,7 +77,7 @@
     margin-top: 10px;
 }
 
-.content-details input[type="button"]{
+.content-details button{
     padding: 6px 40px;
     font-size: 18px;
     margin-top: 10px;
@@ -97,6 +97,12 @@ p{
     font-family: Garamond, serif;
     font-size: 22px;
 
+
+
+}
+.content-details button a{
+    color:white;
+    
 
 
 }
