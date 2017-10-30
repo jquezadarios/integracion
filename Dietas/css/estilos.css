@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+body{
+
+    background: #78a7be;
+    background-image: url(../images/bg5.jpg);
+    background-attachment: fixed;
+    background-position: center;
+}
+
 
 .content-all{
     width: 1000px;
