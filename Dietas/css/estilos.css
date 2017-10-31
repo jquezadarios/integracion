@@ -108,8 +108,15 @@ p{
 
 
 }
-.content-details button a{
+.content-details a button {
     color:white;
+    background: orange;
+    border-style: none;
+    border-radius: 8px;
+    color: white;
+    margin-top: 10px;
+    transition: all 300ms;
+    cursor: pointer;
     
 
 
