@@ -61,16 +61,13 @@ $(document).ready(function(){
   <header>
     <nav>
       <div class="nav-wrapper #ec407a pink lighten-1 ">
-        <a href="#!" class="brand-logo">Logo</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="">Inicio</a></li>
-          <li><a href="">Ayuda</a></li>
           <li><a href="../Dietas/dieta.html">Dietas</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li><a href="">Inicio</a></li>
-          <li><a href="">Ayuda</a></li>
           <li><a href="../Dietas/dieta.html">Dietas</a></li>
         </ul>
       </div>
@@ -306,7 +303,9 @@ $totalV[$número]=0;
     $totalA[$número]=$totalA[$número]+$row["Azucar"];
     $totalV[$número]=$totalV[$número]+$row["Vitaminas"];
 	} } }
+	
 ?>
+
 
 
 
@@ -335,7 +334,7 @@ new Chart(document.getElementById("bar-chart"), {
       labels: ["Proteinas(g)", "Colesterol(mg)", "Grasas_totales(g)", "Sodio(mg)", "Carbohidratos(g)","Azucar(g)","Vitaminas(mg)"],
       datasets: [
         {
-          label: "Population (millions)",
+          label: "",
           backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
           data: [totaldiaP,totaldiaC,totaldiaG,totaldiaS,totaldiaCA,totaldiaA,totaldiaV]
         }
@@ -354,16 +353,16 @@ new Chart(document.getElementById("bar-chart"), {
 
 
 
-
-
-
-
 		<div > </canvas></div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+
+
 
 <div class="row" style="display: inline-block; 	width:600px;">
          <div class="col s12 m6" style="width:100%;">
@@ -373,44 +372,57 @@ new Chart(document.getElementById("bar-chart"), {
 <div class="card #ec407a white lighten-1">
 <canvas id="line-chart" width="800" height="420"></canvas>
 </div>
+
+
+
+
+
+
 <script>
+var totalP =  <?php echo json_encode($totalP) ?>;
+var totalC =  <?php echo json_encode($totalC) ?>;
+var totalG =  <?php echo json_encode($totalG) ?>;
+var totalS =  <?php echo json_encode($totalS) ?>;
+var totalCA =  <?php echo json_encode($totalCA) ?>;
+var totalA =  <?php echo json_encode($totalA) ?>;
+var totalV =  <?php echo json_encode($totalV) ?>;
 
 new Chart(document.getElementById("line-chart"), {
   type: 'line',
   data: {
-    labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+    labels: ["ENE", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AGOS", "SEP" ,"OCT","NOV","DIC"],
     datasets: [{ 
-        data: [86,114,106,106,107,111,133,221,783,2478],
+        data: [totalP[1],totalP[2],totalP[3],totalP[4],totalP[5],totalP[6],totalP[7],totalP[8],totalP[9],totalP[10],totalP[11],totalP[12]],
         label: "Proteinas(g)",
         borderColor: "#3e95cd",
         fill: false
       }, { 
-        data: [282,350,411,502,635,809,947,1402,3700,5267],
+        data: [totalC[1],totalC[2],totalC[3],totalC[4],totalC[5],totalC[6],totalC[7],totalC[8],totalC[9],totalC[10],totalC[11],totalC[12]],
         label: "Colesterol(mg)",
         borderColor: "#8e5ea2",
         fill: false
       }, { 
-        data: [168,170,178,190,203,276,408,547,675,734],
+        data: [totalG[1],totalG[2],totalG[3],totalG[4],totalG[5],totalG[6],totalG[7],totalG[8],totalG[9],totalG[10],totalG[11],totalG[12]],
         label: "Grasas_totales(g)",
         borderColor: "#3cba9f",
         fill: false
       }, { 
-        data: [40,20,10,16,24,38,74,167,508,784],
+        data: [totalS[1],totalS[2],totalS[3],totalS[4],totalS[5],totalS[6],totalS[7],totalS[8],totalS[9],totalS[10],totalS[11],totalS[12]],
         label: "Sodio(mg)",
         borderColor: "#e8c3b9",
         fill: false
       }, { 
-        data: [6,3,2,2,7,26,82,172,312,433],
+        data: [totalCA[1],totalCA[2],totalCA[3],totalCA[4],totalCA[5],totalCA[6],totalCA[7],totalCA[8],totalCA[9],totalCA[10],totalCA[11],totalCA[12]],
         label: "Carbohidratos(g)",
         borderColor: "#c45850",
         fill: false
       },  { 
-        data: [6,3,2,2,7,26,82,172,312,433],
+        data: [totalA[1],totalA[2],totalA[3],totalA[4],totalA[5],totalA[6],totalA[7],totalA[8],totalA[9],totalA[10],totalA[11],totalA[12]],
         label: "Azucar(g)",
         borderColor: "#c45850",
         fill: false},
  { 
-        data: [6,3,2,2,7,26,82,172,312,433],
+        data: [totalV[1],totalV[2],totalV[3],totalV[4],totalV[5],totalV[6],totalV[7],totalV[8],totalV[9],totalV[10],totalV[11],totalV[12]],
         label: "Vitaminas(mg)",
         borderColor: "#c45850",
         fill: false}
