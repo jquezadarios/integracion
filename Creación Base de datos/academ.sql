@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 25-10-2017 a las 18:54:34
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.9
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 02-11-2017 a las 04:09:37
+-- Versión del servidor: 10.1.13-MariaDB
+-- Versión de PHP: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -72,6 +70,36 @@ INSERT INTO `alimentos` (`ID_A`, `Nombre`, `Calorias`, `Proteinas`, `Colesterol`
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `dieta`
+--
+
+CREATE TABLE `dieta` (
+  `id_d` int(12) NOT NULL,
+  `nombre_dieta` varchar(40) NOT NULL,
+  `lunes` varchar(40) NOT NULL,
+  `martes` varchar(40) NOT NULL,
+  `miercoles` varchar(40) NOT NULL,
+  `jueves` varchar(40) NOT NULL,
+  `viernes` varchar(40) NOT NULL,
+  `sabado` varchar(40) NOT NULL,
+  `domingo` varchar(40) NOT NULL,
+  `op1` varchar(40) NOT NULL,
+  `op2` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `dieta`
+--
+
+INSERT INTO `dieta` (`id_d`, `nombre_dieta`, `lunes`, `martes`, `miercoles`, `jueves`, `viernes`, `sabado`, `domingo`, `op1`, `op2`) VALUES
+(1, 'Pescaria', 'Salmon', 'Jurel', 'Choritos', 'Paila marina', 'Paeja de pescado', 'Pescado frito', 'Ceviche', 'Empanada de horno marina', 'Jaibas'),
+(2, 'Adelgazar', 'Sandwiches', 'Huevos', 'Salmon', 'Frutas', 'Carne magra y pechuga de pollo', 'Verduras verdes', 'Cereales integrales', 'Papas cocidas', 'Sopa'),
+(3, 'deportista', 'Frutas', 'batidos frutales', 'verduras', 'pastas', 'proteinas', 'huevo crudo', 'rollitos', 'agua', 'bebida energetica'),
+(4, 'Vegetariana', 'Frutas', 'Batidos frutales', 'Verduras', 'Pastel de verduras', 'sandwiches', 'Arroz con vegetales', 'Rollitos', 'Agua', 'Jugos frutales');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `login`
 --
 
@@ -114,6 +142,23 @@ INSERT INTO `login` (`id`, `user`, `password`, `email`, `pasadmin`, `rol`, `peso
 (26, 'df', 'eff7d5dba32b4da32d9a67a519434d3f', 'df', '', 2, 60, 179, 'hombre', 19, 20, 2265),
 (27, '', '040b7cf4a55014e185813e0644502ea9', 'asdasdasd@gmail.com', '', 2, 0, 0, '', 0, 0, 0),
 (28, 'asd', 'd9729feb74992cc3482b350163a1a010', 'dsf', '', 2, 0, 0, '', 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sdieta`
+--
+
+CREATE TABLE `sdieta` (
+  `id_d` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `sdieta`
+--
+
+INSERT INTO `sdieta` (`id_d`) VALUES
+(1);
 
 -- --------------------------------------------------------
 
@@ -225,10 +270,22 @@ ALTER TABLE `alimentos`
   ADD PRIMARY KEY (`ID_A`);
 
 --
+-- Indices de la tabla `dieta`
+--
+ALTER TABLE `dieta`
+  ADD PRIMARY KEY (`id_d`);
+
+--
 -- Indices de la tabla `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `sdieta`
+--
+ALTER TABLE `sdieta`
+  ADD KEY `id_d` (`id_d`);
 
 --
 -- Indices de la tabla `seguimiento_usuario`
@@ -246,29 +303,31 @@ ALTER TABLE `seguimiento_usuario`
 --
 ALTER TABLE `alimentos`
   MODIFY `ID_A` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
 --
 -- AUTO_INCREMENT de la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
   MODIFY `ID_S` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
-
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `sdieta`
+--
+ALTER TABLE `sdieta`
+  ADD CONSTRAINT `sdieta_ibfk_1` FOREIGN KEY (`id_d`) REFERENCES `dieta` (`id_d`);
 
 --
 -- Filtros para la tabla `seguimiento_usuario`
 --
 ALTER TABLE `seguimiento_usuario`
   ADD CONSTRAINT `seguimiento_usuario_ibfk_3` FOREIGN KEY (`id`) REFERENCES `login` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

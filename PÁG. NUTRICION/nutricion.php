@@ -112,6 +112,48 @@ $(document).ready(function(){
             <div style="height:335px"> <div class="card-content white-text">
               <span class="card-title ">Datos:</span>
 
+<!-- las dieta seleccionada -->
+<?php
+  $mysqli = new MySQLi("localhost", "root","", "academ");
+    if ($mysqli -> connect_errno) {
+      die( "Fallo la conexión a MySQL: (" . $mysqli -> mysqli_connect_errno() 
+        . ") " . $mysqli -> mysqli_connect_error());
+    }
+    else{}
+  $datos =$mysqli->query("SELECT * FROM dieta, sdieta WHERE dieta.id_d=sdieta.id_d");     
+
+?>
+
+<table border="1px">
+    <h2>Tu dieta seleccionada</h2>
+    <th>lunes</th>
+    <th>martes</th>
+    <th>miercoles</th>
+    <th>jueves</th>
+    <th>viernes</th>
+    <th>sabado</th>
+    <th>domingo</th>
+    <th>op1</th>
+    <th>op2</th>
+  
+    <?php while($user = mysqli_fetch_array($datos)){ ?>
+    <tr>
+      <h3><?php echo $user['nombre_dieta'];?></h3>
+      <td><?php echo $user['lunes'];?></td>
+      <td><?php echo $user['martes'];?></td>
+      <td><?php echo $user['miercoles'];?></td>
+      <td><?php echo $user['jueves'];?></td>
+      <td><?php echo $user['viernes'];?></td>
+      <td><?php echo $user['sabado'];?></td>
+      <td><?php echo $user['domingo'];?></td>
+      <td><?php echo $user['op1'];?></td>
+      <td><?php echo $user['op2'];?></td>
+    </tr>
+    <?php } ?>
+</table>
+
+<!-- hasta aqui -->
+
 
 
 
